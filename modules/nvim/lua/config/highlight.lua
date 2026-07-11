@@ -6,13 +6,17 @@ function M.apply(c)
 
     local groups = {
         -- UI Elements
-        Normal       = { bg = c.c0, fg = c.c5 },
-        NormalFloat  = { bg = c.c1, fg = c.c5 },
-        FloatBorder  = { fg = c.c3, bg = c.c1 },
+        Normal       = { bg = c.c0, fg = c.c5 }, -- Main background shifted to c0
+        NormalNC     = { bg = c.c0, fg = c.c5 }, -- Keeps inactive windows unified
+        NormalFloat  = { bg = c.c0, fg = c.c5 }, -- Float windows (Which-Key, diagnostics)
+        FloatBorder  = { fg = c.c3, bg = c.c0 }, -- Float window borders
+        WhichKeyFloat = { bg = c.c0, fg = c.c5 }, -- Explicit fallback protection for Which-Key
         CursorLine   = { bg = c.c2 },
         Visual       = { bg = c.c2 },
-        LineNr       = { fg = c.c3 },
-        CursorLineNr = { fg = c.c12, bold = true },
+        LineNr       = { fg = c.c3, bg = c.c0 }, -- Gutter matches c0
+        CursorLineNr = { fg = c.c12, bg = c.c0, bold = true },
+        SignColumn   = { bg = c.c0 },            -- Gitsigns/diagnostic gutter matches c0
+        FoldColumn   = { bg = c.c0 },            -- Folds match c0
         Title        = { fg = c.c12, bold = false },
 
         -- Standard Language Syntax Highlighting

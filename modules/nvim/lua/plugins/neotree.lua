@@ -11,6 +11,10 @@ return {
       local function apply_neotree_highlights()
         local c = require('config.colorscheme').active
         local highlights = {
+          NeoTreeNormal        = { bg = c.c0, fg = c.c5 }, -- Force main sidebar background to c0
+          NeoTreeNormalNC      = { bg = c.c0, fg = c.c5 }, -- Force inactive sidebar background to c0
+          NeoTreeSignColumn    = { bg = c.c0 },
+          NeoTreeWinSeparator  = { fg = c.c2, bg = c.c0 }, -- Blends window vertical split line smoothly
           NeoTreeDirectoryName = { fg = c.c14, bold = true },
           NeoTreeDirectoryIcon = { fg = c.c14 },
           NeoTreeFileName      = { fg = c.c5 },

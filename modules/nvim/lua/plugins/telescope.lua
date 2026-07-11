@@ -27,7 +27,7 @@ return {
         vim.api.nvim_set_hl(0, "TelescopePromptPrefix",   { fg = c.c9 })
         vim.api.nvim_set_hl(0, "TelescopeNormal",         { bg = c.c0, fg = c.c4 })
         vim.api.nvim_set_hl(0, "TelescopePreviewNormal",  { bg = c.c0 })
-        vim.api.nvim_set_hl(0, "TelescopePromptNormal",   { bg = c.c1 })
+        vim.api.nvim_set_hl(0, "TelescopePromptNormal",   { bg = c.c0 })
         vim.api.nvim_set_hl(0, "TelescopeResultsNormal",  { bg = c.c0 })
         vim.api.nvim_set_hl(0, "TelescopeTitle",          { fg = c.c8, bold = true })
         vim.api.nvim_set_hl(0, "TelescopePromptTitle",    { fg = c.c9, bold = true })
@@ -39,7 +39,7 @@ return {
       require('telescope').setup({
         defaults = {
           preview = { filesize_limit = 1, timeout = 500, treesitter = false },
-          layout_config = { preview_width = 0.6, width = 0.9, height = 0.9 },
+          layout_config = { horizontal = {preview_width = 0.6,}, width = 0.9, height = 0.9 },
           mappings = { i = {}, n = {} },
         },
         extensions = {
