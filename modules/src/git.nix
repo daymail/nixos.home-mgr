@@ -5,8 +5,8 @@
   programs.git ={
     enable = true;
     ignores = [
-      "*.txt"
       "*.local"
+      ".direnv/"
     ];
 
     settings = {

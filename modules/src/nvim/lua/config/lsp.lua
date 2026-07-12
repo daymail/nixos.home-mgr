@@ -13,7 +13,7 @@ vim.lsp.config("rust_analyzer",{
       procMacro = {
         enable = true,
       },
-      checkOnSave = true;
+      checkOnSave = true,
       check = {
         command = "clippy",
       },
@@ -21,9 +21,32 @@ vim.lsp.config("rust_analyzer",{
   },
 })
 
-vim.lsp.config("lua_ls", { capabilities = capabilities })
-vim.lsp.config("nixd", { capabilities = capabilities })
+vim.lsp.config("lua_ls",{capabilities = capabilities})
+vim.lsp.config("nixd",{capabilities = capabilities})
 
+vim.lsp.config("clangd",{
+  capabilities = capabilities,
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--clang-tidy",
+    "--header-insertion=iwyu",
+  }
+})
+
+vim.lsp.config("cmake",{
+  capabilities = capabilities,
+  cmd = { "cmake-language-server" }
+})
+
+vim.lsp.config("qmlls",{
+  capabilities = capabilities,
+  cmd = { "qmlls" }
+})
+
+vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("nixd")
-vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("clangd")
+vim.lsp.enable("cmake")
+vim.lsp.enable("qmlls")
