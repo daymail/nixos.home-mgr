@@ -1,0 +1,55 @@
+[window]
+opacity = 0.91
+dynamic_title = true
+dynamic_padding = true
+
+[font]
+size = 9.9
+
+[font.normal]
+family = "JetBrainsMono"
+style = "Regular"
+
+[font.bold]
+family = "JetBrainsMono"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono"
+style = "Italic"
+
+[font.bold_italic]
+family = "JetBrainsMono"
+style = "Bold Italic"
+
+[font.offset]
+x = 0
+y = 0
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[colors.primary]
+background = "#181818"
+foreground = "#D0D9D7"
+
+[colors.normal]
+black   = "#3D3D3D"
+red     = "#CE96A6"
+green   = "#95D5B2"
+yellow  = "#F5CCD4"
+blue    = "#82B8A9"
+magenta = "#E0CEFD"
+cyan    = "#90E0F3"
+white   = "#D0D9D7"
+
+[colors.bright]
+black   = "#646464"
+red     = "#CE96A6"
+green   = "#95D5B2"
+yellow  = "#F5CCD4"
+blue    = "#B4E1EB"
+magenta = "#E0CEFD"
+cyan    = "#90E0F3"
+white   = "#DAFFEF"

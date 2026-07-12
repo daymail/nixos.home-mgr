@@ -2,18 +2,16 @@
   home.username = "src";
   home.homeDirectory = "/home/src";
   home.stateVersion = "25.11"; # Please read the comment before changing.
-  imports = [./modules/main.nix];
+  imports = [./modules/src/main.nix];
   home.packages = with pkgs; [
-    lua-language-server
+    fzf
   ];
   home.file = {
   };
   home.sessionVariables = {
+    EDITOR = "nvim";
+    BROWSER = "zen-twilight";
   };
-  programs.home-manager.enable = true;
 
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-  };
+  programs.home-manager.enable = true;
 }
