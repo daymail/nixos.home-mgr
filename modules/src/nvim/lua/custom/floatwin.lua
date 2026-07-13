@@ -21,9 +21,9 @@ end
 
 local function apply_highlights()
     local hl = vim.api.nvim_get_hl(0, { name = "TelescopeBorder" })
-    local fg_color = hl.fg or vim.api.nvim_get_hl(0, { name = "FloatBorder" }).fg or "#7fbbb3"
+    local fg_color = vim.api.nvim_get_hl(0, { name = "Comment" }).fg or "#7fbbb3"
     local bg_color = hl.bg or vim.api.nvim_get_hl(0, { name = "NormalFloat" }).bg
-    vim.api.nvim_set_hl(0, "CustomFloatBorder", { fg = fg_color, bg = bg_color })
+    vim.api.nvim_set_hl(0, "CustomFloatBorder", { fg = fg_color, bg = bg_color, bold = false })
 end
 apply_highlights()
 
@@ -46,7 +46,8 @@ function M.toggle_terminal()
     apply_highlights()
     vim.wo[M.terminal_win].winhl = "FloatBorder:CustomFloatBorder"
 
-    vim.keymap.set('t', '<Esc><Esc>', function()
+    vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], {buffer = M.terminal_buf, desc = "Float-term normal mode"})
+    vim.keymap.set('n', '<Esc>', function()
         if M.terminal_win and vim.api.nvim_win_is_valid(M.terminal_win) then
             vim.api.nvim_win_close(M.terminal_win, true)
             M.terminal_win = nil

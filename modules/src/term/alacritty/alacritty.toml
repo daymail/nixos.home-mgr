@@ -4,22 +4,22 @@ dynamic_title = true
 dynamic_padding = true
 
 [font]
-size = 9.9
+size = 11.0
 
 [font.normal]
-family = "JetBrainsMono"
+family = "Iosevka Nerd Font"
 style = "Regular"
 
 [font.bold]
-family = "JetBrainsMono"
+family = "Iosevka Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "JetBrainsMono"
+family = "Iosevka Nerd Font"
 style = "Italic"
 
 [font.bold_italic]
-family = "JetBrainsMono"
+family = "Iosevka Nerd Font"
 style = "Bold Italic"
 
 [font.offset]

@@ -41,7 +41,11 @@ vim.lsp.config("cmake",{
 
 vim.lsp.config("qmlls",{
   capabilities = capabilities,
-  cmd = { "qmlls" }
+  cmd = {
+    "qmlls",
+    "--build-dir",
+    "build"
+  }
 })
 
 vim.lsp.enable("rust_analyzer")
@@ -50,3 +54,12 @@ vim.lsp.enable("nixd")
 vim.lsp.enable("clangd")
 vim.lsp.enable("cmake")
 vim.lsp.enable("qmlls")
+
+
+
+-- LSP KEYMAPS
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {desc = "  LSP: Go to [d]efinition"})
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {desc = "  LSP: Go to [D]eclaration"})
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {desc = "  LSP: Go to [I]mplementation"})
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, {desc = "  LSP: Go to [r]eferences"})
+vim.keymap.set('n', '<C-t>', '<C-o>', { desc = "  Jump back in tag stack (where you were before)" })
