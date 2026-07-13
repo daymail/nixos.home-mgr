@@ -4,45 +4,45 @@ return {
     event = "VimEnter",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      -- Set your custom highlights
-      vim.api.nvim_set_hl(0, "icon", { fg = "#7C644D", bold = true })
-      vim.api.nvim_set_hl(0, "desc", { fg = "#AEA492" })
-      vim.api.nvim_set_hl(0, "key", { fg = "#AEA492", italic = true })
-      vim.api.nvim_set_hl(0, "dashboardquit", { fg = "#ff5555", bold = true })
-      vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#A9B665", bold = true })
-      vim.api.nvim_set_hl(0, "DashboardFooter", { fg = "#747465", italic = true })
+      -- Function to dynamically compute highlights from your active palette
+      local function apply_dashboard_highlights()
+        local c = require('config.colorscheme').active
 
-      -- Auto-reload highlights when colorscheme changes
-      vim.api.nvim_create_autocmd("ColorScheme", {
-        callback = function()
-          vim.api.nvim_set_hl(0, "icon", { fg = "#d08770", bold = true })
-          vim.api.nvim_set_hl(0, "desc", { fg = "#CBD7E8" })
-          vim.api.nvim_set_hl(0, "key", { fg = "#CBD7E8", italic = true })
-          vim.api.nvim_set_hl(0, "dashboardquit", { fg = "#ff5555", bold = true })
-          vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#D9696A", bold = true })
-          vim.api.nvim_set_hl(0, "DashboardFooter", { fg = "#9DBAA8", italic = true })
-        end,
+        vim.api.nvim_set_hl(0, "icon",            { fg = c.c14, bold = true }) -- Matches your Function highlight
+        vim.api.nvim_set_hl(0, "desc",            { fg = c.c5 })               -- Matches your standard Text foreground
+        vim.api.nvim_set_hl(0, "key",             { fg = c.c12, italic = true }) -- Matches your Type/Title highlight
+        vim.api.nvim_set_hl(0, "dashboardquit",   { fg = c.c11, bold = true }) -- Matches your Red/Statement alert color
+        vim.api.nvim_set_hl(0, "DashboardHeader", { fg = c.c12, bold = true }) -- Title/Banner color balance
+        vim.api.nvim_set_hl(0, "DashboardFooter", { fg = c.c3, italic = true })  -- Matches your Comment color
+      end
+
+      -- Run initial highlights on boot
+      apply_dashboard_highlights()
+
+      -- Hot-reload colorscheme dynamically when your custom :MyTheme event triggers
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "ThemeChanged",
+        callback = apply_dashboard_highlights,
       })
-
       require("dashboard").setup({
         theme = "doom",
         config = {
-		header = {
-			"",
-			"",
-			"",
-			"",
-			"   ██████╗ ██████╗ ██╗   ██╗██╗   ██╗██████╗  ██████╗ ██╗  ██╗",
-			"  ██╔════╝ ██╔══██╗██║   ██║██║   ██║██╔══██╗██╔═══██╗╚██╗██╔╝",
-			"  ██║  ███╗██████╔╝██║   ██║██║   ██║██████╔╝██║   ██║ ╚███╔╝ ",
-			"  ██║   ██║██╔══██╗██║   ██║╚██╗ ██╔╝██╔══██╗██║   ██║ ██╔██╗ ",
-			"  ╚██████╔╝██║  ██║╚██████╔╝ ╚████╔╝ ██████╔╝╚██████╔╝██╔╝ ██╗",
-			"   ╚═════╝ ╚═╝  ╚═╝ ╚═════╝   ╚═══╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝",
-			"",
-			"",
-			"",
-			"",
-		},
+          header = {
+            "",
+            "",
+            "",
+            "",
+            "    ███╗     ███╗██╗███╗   ██╗██╗███╗     ███╗ █████╗ ██╗     ",
+            "    ████╗   ████║██║████╗  ██║██║████╗   ████║██╔══██╗██║     ",
+            "    ██╔██╗ ██╔██║██║██╔██╗ ██║██║██╔██╗ ██╔██║███████║██║     ",
+            "    ██║╚████╔╝██║██║██║╚██╗██║██║██║╚████╔╝██║██╔══██║██║     ",
+            "    ██║ ╚███╔╝██║██║██║ ╚████║██║██║ ╚███╔╝██║██║  ██║███████╗",
+            "    ╚═╝  ╚══╝ ╚═╝╚═╝╚═╝  ╚═══╝╚═╝╚═╝  ╚══╝ ╚═╝╚═╝  ╚═╝╚══════╝",
+            "",
+            "",
+            "",
+            "",
+          },
           header_pad = 20,
           center = {
             {
@@ -116,7 +116,7 @@ return {
             "",
             "",
             "",
-            "        He was aware that he was still a child.",
+            "         It's always for the larp.",
           },
           vertical_center = true,
         },
