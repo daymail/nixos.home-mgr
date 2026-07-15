@@ -74,6 +74,10 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -- Please note permission changes here require a Hyprland restart and are not applied on-the-fly
 -- for security reasons
 
+hl.on("hyprland.start", function ()
+  hl.exec_cmd("awww-daemon & disown")
+end)
+
 -- hl.config({
 --   ecosystem = {
 --     enforce_permissions = true,

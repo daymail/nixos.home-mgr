@@ -37,10 +37,14 @@
 
       recolor-lightcolor = "#181818"; # c0 (Page background)
       recolor-darkcolor = "#D0D9D7"; # c5 (Document text and lines)
+
+      page-padding = 0;
+      page-v-padding = 0;
+      page-h-padding = 0;
     };
 
     mappings = {
-      "D" = "toggle_page_mode";
+      "D" = "toggle_page_mode"; #double page view
       "r" = "reload";
       "R" = "rotate rotate-cw";
       "i" = "zoom in";
@@ -48,3 +52,7 @@
     };
   };
 }
+
+
+
+#Ctrl + r = swap theme
