@@ -9,6 +9,7 @@
     ./misc/misc.nix
     ./shell/shell.nix
     ./browsers/zen/zen.nix
+    ./documents/documents.nix
     ./wm/hyprland/hyprland.nix
   ];
 }
