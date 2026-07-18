@@ -1,4 +1,4 @@
-{...}:{
+{
   programs.zen-browser.profiles.default = {
     settings = {
       "browser.startup.homepage" = "https://google.com";
@@ -13,7 +13,6 @@
       "zen.welcome-screen.seen" = true;
       "layout.css.devPixelsPerPx" = "0.9"; #Browser scale
     };
-
-    userChrome = "";
   };
+  imports = [./browser-font.nix];
 }

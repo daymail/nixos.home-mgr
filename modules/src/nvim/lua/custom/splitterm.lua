@@ -26,7 +26,7 @@ local function toggle_term()
 end
 
 vim.api.nvim_create_user_command('TTerm', toggle_term, {})
-vim.keymap.set('n', '<C-j>', toggle_term, {desc = 'Toggle bottom terminal'})
+-- vim.keymap.set('n', '<C-j>', toggle_term, {desc = 'Toggle bottom terminal'})
 vim.keymap.set('n', '<leader>x', toggle_term, {desc = 'Toggle bottom terminal'})
 
 vim.keymap.set('t', '<C-j>', [[<C-\><C-n>]] .. '<Cmd>lua toggle_term()<CR>', { desc = 'Toggle bottom terminal' })
