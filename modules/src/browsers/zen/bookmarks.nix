@@ -16,6 +16,7 @@
         name = "Dev";
         bookmarks = [
           {name = "Github"; url = "https://github.com";}
+          {name = "Cobalt"; url = "https://cobalt.tools/";}
         ];
       }
       {

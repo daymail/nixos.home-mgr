@@ -26,3 +26,7 @@ vim.keymap.set("", "<down>", "<nop>", { noremap = true })
 vim.keymap.set("i", "<up>", "<nop>", { noremap = true })
 vim.keymap.set("i", "<down>", "<nop>", { noremap = true })
 vim.api.nvim_create_autocmd("VimEnter", { callback = function() vim.o.mouse = "" end })
+
+
+-- Tabs
+vim.keymap.set('n', '<leader>tn', ':tabnew<CR>', { noremap = true, silent = true })

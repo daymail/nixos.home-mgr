@@ -1,0 +1,32 @@
+@import "config.rasi"
+
+configuration{
+    show-icons: false;
+}
+window {
+    width: 310px;
+    height: 390px;
+}
+
+entry{
+    placeholder: "Themes";
+}
+
+listview {
+    columns: 1;
+    lines: 0;
+    fixed-height: false;
+    scrollbar: false;
+}
+
+listbox{
+    padding: 15px;
+}
+
+inputbar {
+    children: [ "textbox-prompt-colon", "entry" ];
+}
+
+element{
+    border-radius: 15px;
+}
