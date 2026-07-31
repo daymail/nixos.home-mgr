@@ -41,6 +41,7 @@
       page-padding = 0;
       page-v-padding = 0;
       page-h-padding = 0;
+#Ctrl + r = swap theme
     };
 
     mappings = {
@@ -55,4 +56,3 @@
 
 
 
-#Ctrl + r = swap theme

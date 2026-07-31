@@ -5,6 +5,7 @@
   imports = [./modules/src/main.nix];
   home.packages = with pkgs; [
     fzf
+    lazygit
   ];
   home.file = {
   };

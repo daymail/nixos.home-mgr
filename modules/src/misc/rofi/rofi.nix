@@ -1,10 +1,9 @@
-{ config, pkgs, ... }:{
+{pkgs, ... }:{
   home.packages = [
     pkgs.rofi
   ];
 
   xdg.configFile."rofi/config.rasi".text = ''
-    /*****----- Configuration -----*****/
     configuration {
         modi:                       "drun,run,filebrowser,window";
         show-icons:                 true;
@@ -16,20 +15,18 @@
         window-format:              "{w} · {c} · {t}";
     }
     @theme "/dev/null"
-    /*****----- Global Properties -----*****/
     * {
         font:                        "JetBrains Mono Nerd Font 10";
         background:                  #181818f2;
         background-alt:              #1A1A1A;
         foreground:                  #D0D9D7;
-        selected:                    #95D5B2;
+        selected:                    #aac0b3;
         active:                      #B4E1EB;
         urgent:                      #CE96A6;
-        app-selected:                #95D5B2;
+        app-selected:                #aac0b3;
         scroll:                      #3D3D3D;
     }
 
-    /*****----- Main Window -----*****/
     window {
         transparency:                "real";
         location:                    center;
@@ -45,7 +42,6 @@
         background-color:            @background;
     }
 
-    /*****----- Main Box -----*****/
     mainbox {
         enabled:                     true;
         spacing:                     0px;
@@ -63,7 +59,6 @@
         children:                    [ "message", "listview" ];
     }
 
-    /*****----- Inputbar -----*****/
     inputbar {
         enabled:                     true;
         spacing:                     10px;
@@ -99,7 +94,6 @@
         background-color:            transparent;
     }
 
-    /*****----- Mode Switcher -----*****/
     mode-switcher{
         enabled:                     true;
         spacing:                     30px;
@@ -119,7 +113,6 @@
         text-color:                  #181818;
     }
 
-    /*****----- Listview -----*****/
     listview {
         enabled:                     true;
         columns:                     2;
@@ -138,7 +131,6 @@
         cursor:                      "default";
     }
 
-    /*****----- Elements -----*****/
     element {
         enabled:                     true;
         margin:                      0px;
@@ -193,8 +185,7 @@
         handle-width: 10px;
         border-radius: 20px 20px 20px 20px;
         background-color: @background-alt;
-    }    
-    /*****----- Message -----*****/
+    }
     message {
         background-color:            transparent;
     }

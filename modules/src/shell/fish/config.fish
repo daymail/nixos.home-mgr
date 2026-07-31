@@ -1,4 +1,5 @@
 fish_vi_key_bindings
+fish_add_path ~/.local/bin
 
 function fish_greeting
   alias v="nvim"

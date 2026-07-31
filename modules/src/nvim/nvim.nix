@@ -10,11 +10,8 @@
     withPython3 = false;
     withNodeJs = false;
     extraPackages = with pkgs;[
-      gcc
-      gnumake
-      clang
-      nixd
-      nixfmt
+      gcc gnumake clang
+      nixd nixfmt
       cargo
     ];
   };

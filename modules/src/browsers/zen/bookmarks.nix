@@ -3,6 +3,15 @@
     force = true;
     settings = [
       {
+        name = "Home";
+        toolbar = true;
+        bookmarks =[
+          {name = "Youtube"; url = "https://youtube.com";}
+          {name = "Monkeytype"; url = "https://monkeytype.com";}
+        ];
+      }
+
+      {
         name = "Nix";
         toolbar = true;
         bookmarks =[
@@ -19,6 +28,7 @@
           {name = "Cobalt"; url = "https://cobalt.tools/";}
         ];
       }
+
       {
         name = "UI";
         bookmarks =[
@@ -27,7 +37,6 @@
           {name = "Coloors"; url = "https://coolors.co/";}
         ];
       }
-
     ];
   };
 }
