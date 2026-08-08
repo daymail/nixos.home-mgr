@@ -12,6 +12,7 @@
     ./settings.nix
     ./zen-mods.nix
     ./spaces.nix
+    # ./pwa.nix
   ];
   programs.zen-browser = {
     enable = true;

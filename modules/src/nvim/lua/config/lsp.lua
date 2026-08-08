@@ -48,14 +48,33 @@ vim.lsp.config("qmlls",{
   }
 })
 
+vim.lsp.config("pyright", {
+  capabilities = capabilities,
+  cmd = { "pyright-langserver", "--stdio" },
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        diagnosticMode = "workspace",
+      },
+    },
+  },
+})
+
+vim.lsp.config("ts_ls", {
+  capabilities = capabilities,
+  cmd = { "typescript-language-server", "--stdio" },
+})
+
 vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("nixd")
 vim.lsp.enable("clangd")
 vim.lsp.enable("cmake")
 vim.lsp.enable("qmlls")
-
-
+vim.lsp.enable("pyright")
+vim.lsp.enable("ts_ls")
 
 -- LSP KEYMAPS
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {desc = "  LSP: Go to [d]efinition"})

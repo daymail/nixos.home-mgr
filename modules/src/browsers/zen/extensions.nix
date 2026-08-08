@@ -19,6 +19,7 @@
       "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {id = "vimium-ff"; allowPrivate = true; pinned = false;}; #VIMIUM
       "{74145f27-f039-47ce-a470-a662b129930a}" = {id = "clearurls"; allowPrivate = true; pinned = false;}; #CLEARURLS
       "jid1-BoFifL9Vbdl2zQ@jetpack" = {id = "decentraleyes"; allowPrivate = true; pinned = false;}; #DECENTRALEYES
+      "firefoxpwa@filips.si" = {id = "pwas-for-firefox"; allowPrivate = true; pinned = true;};
     };
   };
 }
