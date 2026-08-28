@@ -51,10 +51,10 @@ M.palettes = {
             c12 = "#FFE761", c13 = "#F8AD9D", c14 = "#78C6A3", c15 = "#E0CEFD",
         },
         light = {
-            c0 = "#F0F4F6", c1 = "#E4EAEF", c2 = "#D2DCE5", c3 = "#8A959E",
-            c4 = "#2F3437", c5 = "#4A5156", c6 = "#1A1D1E", c7 = "#4A7C66",
-            c8 = "#3B6B94", c9 = "#3D7A6B", c10 = "#2A7385", c11 = "#B54D53",
-            c12 = "#A67C1E", c13 = "#B85C43", c14 = "#2D7D56", c15 = "#6E559E",
+            c0 = "#F1F9F9", c1 = "#E1F2FB", c2 = "#D8EFD3", c3 = "#7E938F",
+            c4 = "#677A77", c5 = "#384744", c6 = "#506B67", c7 = "#4E9B79",
+            c8 = "#4A90A0", c9 = "#69A399", c10 = "#5B9CBE", c11 = "#EB6383",
+            c12 = "#8A74C4", c13 = "#B376A5", c14 = "#3B9483", c15 = "#D47783",
         }
     },
     dim_cold = {
@@ -93,10 +93,10 @@ M.palettes = {
             c12 = "#DAFFEF", c13 = "#E0CEFD", c14 = "#82B8A9", c15 = "#F5CCD4",
         },
         light = {
-            c0 = "#F4F6F6", c1 = "#E9ECEC", c2 = "#D5DCDA", c3 = "#A0A8A6",
-            c4 = "#697573", c5 = "#3A4240", c6 = "#45524F", c7 = "#3B8863",
-            c8 = "#2A7C94", c9 = "#2E7958", c10 = "#457E8A", c11 = "#A54F65",
-            c12 = "#308264", c13 = "#7C5DB4", c14 = "#2C7B6D", c15 = "#B45466",
+            c0 = "#E8F5E9", c1 = "#DCECDD", c2 = "#C9DEC9", c3 = "#8B9A8F",
+            c4 = "#76867B", c5 = "#3E4A42", c6 = "#536358", c7 = "#408A64",
+            c8 = "#468B9E", c9 = "#49967A", c10 = "#59859E", c11 = "#C4596F",
+            c12 = "#7564A8", c13 = "#9E5E8A", c14 = "#328775", c15 = "#BD6A75",
         }
     },
 }
@@ -128,7 +128,7 @@ function M.setup()
         M.set_theme(args[1], args[2])
     end, {
         nargs = "+",
-        complete = function(ArgLead, CmdLine, CursorPos)
+        complete = function(CmdLine, CursorPos)
             local args = vim.split(CmdLine:sub(1, CursorPos), "%s+")
             if #args <= 2 then
                 return vim.tbl_keys(M.palettes)
@@ -140,3 +140,4 @@ function M.setup()
 end
 
 return M
+

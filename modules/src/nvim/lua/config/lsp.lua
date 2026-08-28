@@ -1,5 +1,6 @@
 local has_blink, blink = pcall(require, "blink.cmp")
 local capabilities = has_blink and blink.get_lsp_capabilities() or {}
+
 vim.lsp.config("rust_analyzer",{
   capabilities = capabilities,
   cmd = {"rust-analyzer"},
@@ -31,7 +32,15 @@ vim.lsp.config("clangd",{
     "--background-index",
     "--clang-tidy",
     "--header-insertion=iwyu",
-  }
+    "--compile-commands-dir=build",
+    "--query-driver=gcc",
+  },
+  filetypes = {"c", "cpp", "objc", "objcpp"}
+})
+
+vim.lsp.config("mesonlsp",{
+  capabilities = capabilities,
+  cmd = { "mesonlsp", "--lsp" }
 })
 
 vim.lsp.config("cmake",{
@@ -71,6 +80,7 @@ vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("nixd")
 vim.lsp.enable("clangd")
+vim.lsp.enable("mesonlsp")
 vim.lsp.enable("cmake")
 vim.lsp.enable("qmlls")
 vim.lsp.enable("pyright")

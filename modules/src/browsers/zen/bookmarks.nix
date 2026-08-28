@@ -26,6 +26,8 @@
         bookmarks = [
           {name = "Github"; url = "https://github.com";}
           {name = "Cobalt"; url = "https://cobalt.tools/";}
+          {name = "CodeForces"; url = "https://codeforces.com/";}
+          {name = "OS Wiki"; url = "https://wiki.osdev.org/Expanded_Main_Page";}
         ];
       }
 

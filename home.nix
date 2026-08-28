@@ -7,6 +7,9 @@
     fzf
     firefoxpwa
     lazygit
+    ripgrep
+    tty-clock
+    tty-solitaire
   ];
   home.file = {
   };

@@ -1,6 +1,3 @@
-#https://nix-community.github.io/home-manager/options/home-manager/programs/git.html
-#https://home-manager-options.extranix.com/?query=programs.git&release=release-26.05
-
 {...}:{
   programs.git ={
     enable = true;
@@ -27,3 +24,5 @@
   };
 }
 
+#LINK: https://nix-community.github.io/home-manager/options/home-manager/programs/git.html
+#LINK: https://home-manager-options.extranix.com/?query=programs.git&release=release-26.05

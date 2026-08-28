@@ -1,4 +1,3 @@
-#https://nix-community.github.io/home-manager/options/home-manager/programs/neovim.html
 {pkgs, ...}:{
   programs.neovim = {
     enable = true;
@@ -23,3 +22,6 @@
     git
   ];
 }
+
+#LINK: https://nix-community.github.io/home-manager/options/home-manager/programs/neovim.html
+

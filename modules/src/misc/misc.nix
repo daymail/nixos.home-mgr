@@ -1,5 +1,6 @@
 {
   imports =[
+    ./dev/gf2.nix
     ./btop/btop.nix
     ./tmux/tmux.nix
     ./cava/cava.nix

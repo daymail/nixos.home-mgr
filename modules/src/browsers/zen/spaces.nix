@@ -7,7 +7,7 @@
       "Home" = {
         id = "daab06da-a599-4ae8-98b9-30dbeb49bf03";
         position = 1000;
-        icon = "⭐";
+        icon = "";
         container = 1;
         theme = {
           type = "gradient";
