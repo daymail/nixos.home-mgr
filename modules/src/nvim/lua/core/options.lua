@@ -27,6 +27,7 @@ vim.o.undofile = true
 vim.o.swapfile = true
 vim.o.backup = false
 vim.o.clipboard = 'unnamedplus'
+vim.o.termguicolors = true
 
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
