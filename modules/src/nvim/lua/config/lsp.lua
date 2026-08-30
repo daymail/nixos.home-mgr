@@ -33,7 +33,7 @@ vim.lsp.config("clangd",{
     "--clang-tidy",
     "--header-insertion=iwyu",
     "--compile-commands-dir=build",
-    "--query-driver=gcc",
+    "--query-driver=*",
   },
   filetypes = {"c", "cpp", "objc", "objcpp"}
 })

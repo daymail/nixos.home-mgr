@@ -5,11 +5,11 @@
   imports = [./modules/src/main.nix];
   home.packages = with pkgs; [
     fzf
+    zip unzip
     firefoxpwa
     lazygit
     ripgrep
-    tty-clock
-    tty-solitaire
+    tty-clock tty-solitaire
   ];
   home.file = {
   };
