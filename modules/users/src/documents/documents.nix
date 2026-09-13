@@ -1,0 +1,6 @@
+{...}:{
+  imports =[
+    ./viewer/zathura.nix
+  ];
+}
+

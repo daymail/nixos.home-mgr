@@ -2,7 +2,7 @@
   home.username = "src";
   home.homeDirectory = "/home/src";
   home.stateVersion = "25.11"; # Please read the comment before changing.
-  imports = [./modules/src/main.nix];
+  imports = [./modules/users/src/main.nix];
   home.packages = with pkgs; [
     fzf
     zip unzip
@@ -10,6 +10,7 @@
     lazygit
     ripgrep
     tty-clock tty-solitaire
+    # mtpfs simple-mtpfs fuse jmtpfs libmtp
   ];
   home.file = {
   };

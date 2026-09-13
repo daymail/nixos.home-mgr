@@ -1,4 +1,4 @@
-{config, pkgs, ...}:{
+{ pkgs, ...}:{
   services.awww = {
     enable = true;
   };

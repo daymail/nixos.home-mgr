@@ -1,0 +1,32 @@
+{
+  xdg.configFile."gf2_config.ini".text = ''
+    [ui]
+    font_size_interface=10
+    font_size_code=10
+
+    [theme]
+    panel1=0xFF1A1A1A
+    panel2=0xFF181818
+    selected=0xFF82B8A9
+    border=0xFF3D3D3D
+    text=0xFFD0D9D7
+    textDisabled=0xFF646464
+    textSelected=0xFF181818
+    buttonNormal=0xFF1A1A1A
+    buttonHovered=0xFF3D3D3D
+    buttonPressed=0xFF646464
+    buttonDisabled=0xFF1A1A1A
+    textboxNormal=0xFF181818
+    textboxFocused=0xFF1A1A1A
+    codeFocused=0xFF3D3D3D
+    codeBackground=0xFF181818
+    codeDefault=0xFFD0D9D7
+    codeComment=0xFF646464
+    codeString=0xFF95D5B2
+    codeNumber=0xFFF5CCD4
+    codeOperator=0xFFD0D9D7
+    codePreprocessor=0xFFE0CEFD
+    accent1=0xFF82B8A9
+    accent2=0xFFDAFFEF
+  '';
+}

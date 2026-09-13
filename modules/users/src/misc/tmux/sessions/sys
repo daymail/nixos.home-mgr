@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+SESSION="sys"
+
+if tmux has-session -t "$SESSION" 2>/dev/null; then
+  tmux attach-session -t "$SESSION"
+  exit 0
+fi
+
+tmux new-session -d -s "$SESSION" -n "btop"
+tmux send-keys -t "$SESSION:btop" "btop" C-m
+
+tmux new-window -t "$SESSION" -n "logs"
+tmux send-keys -t "$SESSION:logs" "journalctl -f" C-m
+
+tmux select-window -t "$SESSION:btop"
+tmux attach-session -t "$SESSION"

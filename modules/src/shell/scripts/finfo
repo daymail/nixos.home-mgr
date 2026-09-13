@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+
+SHOW_ALL=0
+TARGET=""
+
+# Parse arguments to handle -a/--all and the file path
+for arg in "$@"; do
+    if [[ "$arg" == "-a" || "$arg" == "--all" ]]; then
+        SHOW_ALL=1
+    else
+        TARGET="$arg"
+    fi
+done
+
+# Check if a path was provided and exists
+if [ -z "$TARGET" ] || [ ! -e "$TARGET" ]; then
+    echo "Usage: $0 [-a|--all] <file-or-directory-path>"
+    exit 1
+fi
+
+# 1. Get the Name
+NAME=$(basename "$TARGET")
+
+# 2. Get the size in Bytes
+if [ -d "$TARGET" ]; then
+    BYTES=$(du -sb "$TARGET" 2>/dev/null | awk '{print $1}')
+else
+    BYTES=$(stat -c %s "$TARGET")
+fi
+
+# 3. Get Metadata (file specific info, no permissions/ownership)
+META=$(file -b "$TARGET")
+
+# 4. Use AWK to dynamically calculate spacing for a perfectly tight table
+awk -v n="$NAME" -v b="$BYTES" -v m="$META" -v show_all="$SHOW_ALL" '
+# Helper function to generate table divider lines
+function dashes(num,   str, i) {
+    str = ""
+    for(i=1; i<=num; i++) str = str "-"
+    return str
+}
+
+BEGIN {
+    # Calculate MB and GB
+    mb = sprintf("%.2f", b / 1000000)
+    gb = sprintf("%.2f", b / 1000000000)
+    
+    # If -a is passed, shorten the main table metadata to just the primary file type 
+    # to keep it compact. We split by comma to grab the first part.
+    if (show_all == 1) {
+        split(m, parts, ",")
+        main_meta = parts[1]
+    } else {
+        main_meta = m
+    }
+
+    # Dynamically calculate exact column widths based on largest string
+    w_n = (length(n) > 4) ? length(n) : 4
+    w_b = (length(b "") > 5) ? length(b "") : 5
+    w_mb = (length(mb) > 2) ? length(mb) : 2
+    w_gb = (length(gb) > 2) ? length(gb) : 2
+    w_m = (length(main_meta) > 8) ? length(main_meta) : 8
+
+    # Formatting template
+    fmt = "%-" w_n "s | %-" w_b "s | %-" w_mb "s | %-" w_gb "s | %-" w_m "s\n"
+
+    # Print main table header
+    printf fmt, "NAME", "BYTES", "MB", "GB", "METADATA"
+    
+    # Print tight separator line
+    printf "%s-+-%s-+-%s-+-%s-+-%s\n", dashes(w_n), dashes(w_b), dashes(w_mb), dashes(w_gb), dashes(w_m)
+    
+    # Print main row
+    printf fmt, n, b, mb, gb, main_meta
+
+    # Print separate grouped metadata table if -a/--all is passed
+    if (show_all == 1) {
+        print "\n"
+        # Split the full metadata by comma into categories/attributes
+        n_parts = split(m, full_parts, ",")
+
+        # Determine width of the attribute index column
+        w_idx = (length(n_parts "") > 4) ? length(n_parts "") : 4
+
+        printf "%-" w_idx "s | %s\n", "ATTR", "CATEGORIZED DETAILS"
+        printf "%s-+-%s\n", dashes(w_idx), dashes(50)
+
+        for (i=1; i<=n_parts; i++) {
+            val = full_parts[i]
+            # Strip leading/trailing whitespaces from the chunks
+            sub(/^[ \t]+/, "", val)
+            sub(/[ \t]+$/, "", val)
+            printf "%-" w_idx "d | %s\n", i, val
+        }
+    }
+}'

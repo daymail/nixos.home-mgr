@@ -1,0 +1,8 @@
+require('core.options')
+require('core.keymaps')
+require('core.autocmd')
+require('config.lazy')
+require('config.theme')
+require('config.lsp')
+require('custom.floatwin')
+require('custom.splitterm')

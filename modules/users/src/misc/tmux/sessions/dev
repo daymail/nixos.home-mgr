@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+TARGET="${1:-.}"
+TARGET="$(cd "$TARGET" 2>/dev/null && pwd)" || exit 1
+
+NAME="$(basename "$TARGET" | tr '.' '_')"
+SESSION="dev-${NAME}"
+
+if tmux has-session -t "$SESSION" 2>/dev/null; then
+  if [ -n "$TMUX" ]; then
+    tmux switch-client -t "$SESSION"
+  else
+    tmux attach-session -t "$SESSION"
+  fi
+  exit 0
+fi
+
+tmux new-session -d -s "$SESSION" -n "editor" -c "$TARGET"
+tmux send-keys -t "$SESSION:editor" "nvim ." C-m
+
+tmux new-window -t "$SESSION" -n "terminal" -c "$TARGET"
+tmux send-keys -t "$SESSION:terminal" "git status" C-m
+
+tmux split-window -h -t "$SESSION:terminal" -c "$TARGET"
+tmux send-keys -t "$SESSION:terminal.2" "clear" C-m
+
+tmux select-window -t "$SESSION:editor"
+
+if [ -n "$TMUX" ]; then
+    tmux switch-client -t "$SESSION"
+  else
+  tmux attach-session -t "$SESSION"
+fi
