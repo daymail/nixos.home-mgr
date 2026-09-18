@@ -10,6 +10,7 @@ function fish_greeting
   alias nix-cfg="sudo nvim /etc/nixos/configuration.nix"
   alias nix-rebuild="sudo nixos-rebuild switch"
   alias nix-home="nvim ~/.config/home-manager/"
+  alias gdb="gdb -q"
 end
 
 export MANPAGER="nvim +Man!"
